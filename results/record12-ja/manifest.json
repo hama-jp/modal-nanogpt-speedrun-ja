@@ -1,0 +1,69 @@
+{
+ "run": "record12-ja-h100x8",
+ "status": "ok",
+ "started_at": 1794927142.7533834,
+ "data": {
+  "lang": "ja",
+  "val_bin": "/vol/ja/fw2jpn-v1/val/ja_val_000000.bin",
+  "val_ntok": 18210634,
+  "train_files": 40,
+  "tokenizer": "sha256:29e2dd148c2369a897604b37017e933b64b69dbd86eaebeafe6b577dd67c1e4f"
+ },
+ "cmd": [
+  "torchrun",
+  "--standalone",
+  "--nproc_per_node=8",
+  "train_gpt.py"
+ ],
+ "env": {
+  "DATA_TRAIN": "/vol/ja/fw2jpn-v1/train/ja_train_*.bin",
+  "DATA_VAL": "/vol/ja/fw2jpn-v1/val/ja_val_*.bin",
+  "SEED": "0",
+  "SAVE_EVERY": "375"
+ },
+ "gpu": "name, memory.total [MiB], compute_cap, driver_version\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\n",
+ "torch": "2.10.0+cu128 12.8",
+ "script_sha256": "590d17bf4959d8f415f5b883b8e7f86f6ddb65630b0c3238a6f302f9dba15ab8",
+ "nccl_check": {
+  "rc": 0,
+  "killed_by_deadline": false,
+  "proc_sec": 17.0
+ },
+ "train_proc": {
+  "rc": 0,
+  "killed_by_deadline": false,
+  "proc_sec": 618.5
+ },
+ "final_val_loss": 3.5924,
+ "final_val_loss_raw": 3.59244514,
+ "val_scored_tokens": 10485760,
+ "params": 162201642,
+ "train_time_ms": 300793,
+ "checkpoints": [
+  "logs/f9a1c9fc-6efa-44e0-a820-435aa7dc7275/state_step000000.pt",
+  "logs/f9a1c9fc-6efa-44e0-a820-435aa7dc7275/state_step000375.pt",
+  "logs/f9a1c9fc-6efa-44e0-a820-435aa7dc7275/state_step000750.pt",
+  "logs/f9a1c9fc-6efa-44e0-a820-435aa7dc7275/state_step001125.pt",
+  "logs/f9a1c9fc-6efa-44e0-a820-435aa7dc7275/state_step001500.pt",
+  "logs/f9a1c9fc-6efa-44e0-a820-435aa7dc7275/state_step001875.pt"
+ ],
+ "val_curve": [
+  "step:0 val_loss:10.8258",
+  "step:125 val_loss:4.9474",
+  "step:250 val_loss:4.4138",
+  "step:375 val_loss:4.2399",
+  "step:500 val_loss:4.1275",
+  "step:625 val_loss:4.0703",
+  "step:750 val_loss:4.0417",
+  "step:875 val_loss:4.0224",
+  "step:1000 val_loss:4.0638",
+  "step:1125 val_loss:3.9618",
+  "step:1250 val_loss:3.8386",
+  "step:1375 val_loss:3.7573",
+  "step:1500 val_loss:3.6944",
+  "step:1625 val_loss:3.6411",
+  "step:1750 val_loss:3.6122",
+  "step:1875 val_loss:3.5924"
+ ],
+ "train_function_sec": 657.6
+}

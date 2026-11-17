@@ -1,0 +1,63 @@
+{
+ "run": "record12-en-h100x8",
+ "status": "ok",
+ "started_at": 1794925389.2143455,
+ "data": {
+  "lang": "en",
+  "val_bin": "/vol/data/fineweb10B/fineweb_val_000000.bin",
+  "val_ntok": 100000000,
+  "train_files": 9,
+  "tokenizer": "tiktoken-gpt2"
+ },
+ "cmd": [
+  "torchrun",
+  "--standalone",
+  "--nproc_per_node=8",
+  "train_gpt.py"
+ ],
+ "env": {
+  "DATA_TRAIN": "/vol/data/fineweb10B/fineweb_train_*.bin",
+  "DATA_VAL": "/vol/data/fineweb10B/fineweb_val_*.bin",
+  "SEED": "0"
+ },
+ "gpu": "name, memory.total [MiB], compute_cap, driver_version\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\nNVIDIA H100 80GB HBM3, 81559 MiB, 9.0, 610.57.04\n",
+ "torch": "2.10.0+cu128 12.8",
+ "script_sha256": "590d17bf4959d8f415f5b883b8e7f86f6ddb65630b0c3238a6f302f9dba15ab8",
+ "nccl_check": {
+  "rc": 0,
+  "killed_by_deadline": false,
+  "proc_sec": 14.0
+ },
+ "train_proc": {
+  "rc": 0,
+  "killed_by_deadline": false,
+  "proc_sec": 543.4
+ },
+ "final_val_loss": 3.2805,
+ "final_val_loss_raw": 3.28052258,
+ "val_scored_tokens": 10485760,
+ "params": 162201642,
+ "train_time_ms": 296884,
+ "checkpoints": [
+  "logs/963449bc-53cd-4fe6-8ee3-9d1c8a308472/state_step001875.pt"
+ ],
+ "val_curve": [
+  "step:0 val_loss:10.8258",
+  "step:125 val_loss:4.4359",
+  "step:250 val_loss:3.9969",
+  "step:375 val_loss:3.8367",
+  "step:500 val_loss:3.7445",
+  "step:625 val_loss:3.6681",
+  "step:750 val_loss:3.6117",
+  "step:875 val_loss:3.5657",
+  "step:1000 val_loss:3.5242",
+  "step:1125 val_loss:3.4964",
+  "step:1250 val_loss:3.4679",
+  "step:1375 val_loss:3.4356",
+  "step:1500 val_loss:3.3845",
+  "step:1625 val_loss:3.3412",
+  "step:1750 val_loss:3.3028",
+  "step:1875 val_loss:3.2805"
+ ],
+ "train_function_sec": 564.0
+}

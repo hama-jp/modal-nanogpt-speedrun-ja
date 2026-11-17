@@ -1,0 +1,22 @@
+{
+ "en": {
+  "loss_raw": 3.28052258,
+  "targets": 10485760,
+  "bytes": 46515256,
+  "bpb": 1.0669,
+  "train_time_ms": 296884,
+  "proc_sec": 543.4,
+  "function_sec": 564.0,
+  "status": "ok"
+ },
+ "ja": {
+  "loss_raw": 3.59244514,
+  "targets": 10485760,
+  "bytes": 63438311,
+  "bpb": 0.8567,
+  "train_time_ms": 300793,
+  "proc_sec": 618.5,
+  "function_sec": 657.6,
+  "status": "ok"
+ }
+}

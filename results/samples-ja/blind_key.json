@@ -1,0 +1,182 @@
+[
+ {
+  "id": 1,
+  "step": 1500,
+  "prompt": "日本の首都は",
+  "sample": 1
+ },
+ {
+  "id": 2,
+  "step": 750,
+  "prompt": "今日の天気は",
+  "sample": 2
+ },
+ {
+  "id": 3,
+  "step": 375,
+  "prompt": "今日の天気は",
+  "sample": 1
+ },
+ {
+  "id": 4,
+  "step": 1500,
+  "prompt": "昔々、ある村に",
+  "sample": 2
+ },
+ {
+  "id": 5,
+  "step": 1125,
+  "prompt": "昔々、ある村に",
+  "sample": 1
+ },
+ {
+  "id": 6,
+  "step": 1875,
+  "prompt": "日本の首都は",
+  "sample": 1
+ },
+ {
+  "id": 7,
+  "step": 1500,
+  "prompt": "今日の天気は",
+  "sample": 2
+ },
+ {
+  "id": 8,
+  "step": 750,
+  "prompt": "昔々、ある村に",
+  "sample": 2
+ },
+ {
+  "id": 9,
+  "step": 1125,
+  "prompt": "今日の天気は",
+  "sample": 1
+ },
+ {
+  "id": 10,
+  "step": 1875,
+  "prompt": "今日の天気は",
+  "sample": 2
+ },
+ {
+  "id": 11,
+  "step": 750,
+  "prompt": "昔々、ある村に",
+  "sample": 1
+ },
+ {
+  "id": 12,
+  "step": 375,
+  "prompt": "昔々、ある村に",
+  "sample": 2
+ },
+ {
+  "id": 13,
+  "step": 1500,
+  "prompt": "今日の天気は",
+  "sample": 1
+ },
+ {
+  "id": 14,
+  "step": 1125,
+  "prompt": "今日の天気は",
+  "sample": 2
+ },
+ {
+  "id": 15,
+  "step": 1500,
+  "prompt": "日本の首都は",
+  "sample": 2
+ },
+ {
+  "id": 16,
+  "step": 1875,
+  "prompt": "昔々、ある村に",
+  "sample": 2
+ },
+ {
+  "id": 17,
+  "step": 375,
+  "prompt": "今日の天気は",
+  "sample": 2
+ },
+ {
+  "id": 18,
+  "step": 1125,
+  "prompt": "日本の首都は",
+  "sample": 2
+ },
+ {
+  "id": 19,
+  "step": 1125,
+  "prompt": "昔々、ある村に",
+  "sample": 2
+ },
+ {
+  "id": 20,
+  "step": 1875,
+  "prompt": "日本の首都は",
+  "sample": 2
+ },
+ {
+  "id": 21,
+  "step": 1125,
+  "prompt": "日本の首都は",
+  "sample": 1
+ },
+ {
+  "id": 22,
+  "step": 750,
+  "prompt": "日本の首都は",
+  "sample": 2
+ },
+ {
+  "id": 23,
+  "step": 375,
+  "prompt": "日本の首都は",
+  "sample": 1
+ },
+ {
+  "id": 24,
+  "step": 375,
+  "prompt": "日本の首都は",
+  "sample": 2
+ },
+ {
+  "id": 25,
+  "step": 375,
+  "prompt": "昔々、ある村に",
+  "sample": 1
+ },
+ {
+  "id": 26,
+  "step": 750,
+  "prompt": "今日の天気は",
+  "sample": 1
+ },
+ {
+  "id": 27,
+  "step": 750,
+  "prompt": "日本の首都は",
+  "sample": 1
+ },
+ {
+  "id": 28,
+  "step": 1875,
+  "prompt": "昔々、ある村に",
+  "sample": 1
+ },
+ {
+  "id": 29,
+  "step": 1500,
+  "prompt": "昔々、ある村に",
+  "sample": 1
+ },
+ {
+  "id": 30,
+  "step": 1875,
+  "prompt": "今日の天気は",
+  "sample": 1
+ }
+]

@@ -1,0 +1,1 @@
+{"lang": "en", "val_bin": "/vol/data/fineweb10B/fineweb_val_000000.bin", "val_ntok": 100000000, "tokenizer": "tiktoken-gpt2", "targets": 10485760, "bytes": 46515256, "eos_targets": 14982, "bytes_per_token": 4.43604}

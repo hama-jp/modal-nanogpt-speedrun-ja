@@ -1,0 +1,131 @@
+--- upstream/train_gpt.py
++++ record12_train_gpt.py
+@@ -259,7 +259,7 @@
+           return causal_mask & document_mask & window_mask
+ 
+         S = len(idx)
+-        block_mask = create_block_mask(document_causal_mask, None, None, S, S, device="cuda", _compile=True)
++        block_mask = create_block_mask(document_causal_mask, None, None, S, S, device="cuda")  # [patch 2026-11-17] 7) _compile=True を外す(torch 2.10 で非推奨。create_block_mask は冒頭で torch.compile 済み)
+ 
+         # forward the GPT model itself
+         x = self.transformer.wte(idx[None]) # token embeddings of shape (b, t, n_embd)
+@@ -378,6 +378,22 @@
+     val_tokens : int = 10485760 # how many tokens of validation data? it's important to keep this fixed for consistent comparisons
+     save_every : int = 0 # every how many steps to save the checkpoint? 0 for only at the end
+ args = Hyperparameters()
++# [patch 2026-11-17 modal-nanogpt-speedrun] 学習の中身(モデル・最適化・スケジュール)は変えない。変えるのは以下の番号つきの差分だけ(一覧は README)。
++# 1) --smoke: 動作確認用に 20 step だけ回す
++# 2) 環境変数 DATA_TRAIN / DATA_VAL: 日本語版のデータの場所(未指定なら英語の FineWeb のまま)
++# 3) 環境変数 SAVE_EVERY: 途中のチェックポイント(日本語版で、学習の途中に文章を書かせるため)
++if '--smoke' in sys.argv:
++    args.num_iterations = 20
++    args.warmdown_iters = 6
++    args.val_loss_every = 0
++    args.val_tokens = args.sequence_length * args.device_batch_size * int(os.environ.get('WORLD_SIZE', '1'))  # 検証は 1 batch だけ
++args.input_bin = os.environ.get('DATA_TRAIN', args.input_bin)
++args.input_val_bin = os.environ.get('DATA_VAL', args.input_val_bin)
++args.save_every = int(os.environ.get('SAVE_EVERY', args.save_every))
++# [patch 2026-11-17] 8) BENCH_STEPS: 速さだけ測る。学習率の予定は本番の 1875 step のまま、指定 step で打ち切る(検証・保存はしない)
++BENCH_STEPS = int(os.environ.get('BENCH_STEPS', '0'))
++if BENCH_STEPS:
++    args.val_loss_every = 0
+ 
+ # set up DDP (distributed data parallel). torchrun sets this env variable
+ assert torch.cuda.is_available()
+@@ -403,12 +419,36 @@
+         f.write('='*100 + '\n')
+         f.write(code)
+         f.write('='*100 + '\n')
++# [patch 2026-11-17 modal-nanogpt-speedrun] 4) 学習曲線の記録(TRACKIO_DIR があるときだけ、rank 0 のみ)。
++#    W&B は試用期間切れのため、無料の Trackio(Hugging Face、W&B と同じ書き方)に替えた。
++#    学習の処理には触れず、すでに出しているログ行("step:..")を読み取って記録するだけ。保存先は Modal の Volume。
++_wb = None
++if master_process and os.environ.get('TRACKIO_DIR'):
++    import re as _re
++    import trackio as _tracker
++    _wb = _tracker.init(project=os.environ.get('TRACKIO_PROJECT', 'modal-nanogpt-speedrun'),
++                        name=os.environ.get('RUN_NAME'), config=vars(args) | {'world_size': ddp_world_size},
++                        auto_log_gpu=True, gpu_log_interval=10.0)
++    _wb_pat = _re.compile(r'step:(\d+)/\d+ (train_loss|val_loss):([\d.]+) train_time:(\d+)ms step_avg:([\d.]+|nan)ms')
++
++def _wb_log(s):
++    m = _wb_pat.match(s)
++    if not m:
++        return
++    step, kind, loss, t_ms, avg = int(m[1]), m[2], float(m[3]), int(m[4]), float(m[5])  # step 0 の step_avg は nan(元の仕様)
++    if kind == 'train_loss' and step % 5 != 0:
++        return
++    _tracker.log({kind: loss, 'train_time_s': t_ms / 1000, 'step_avg_ms': avg,
++                  'tokens_seen': step * args.batch_size * args.sequence_length}, step=step)
++
+ def print0(s, logonly=False):
+     if master_process:
+         with open(logfile, "a") as f:
+             if not logonly:
+                 print(s)
+             f.write(s+'\n')
++        if _wb is not None:
++            _wb_log(s)
+ # log information about the hardware/software environment this is running on
+ # and print the full `nvidia-smi` to file
+ print0(f"Running pytorch {torch.version.__version__} compiled for CUDA {torch.version.cuda}\nnvidia-smi:")
+@@ -437,12 +477,17 @@
+ # there are only 50257 unique GPT-2 tokens; we extend to nearest multiple of 128 for efficiency. suggested to me by @Grad62304977.
+ # this originates from Karpathy's experiments.
+ num_vocab = 50304
++# [patch 2026-11-17] 6) 乱数の種を事前に固定(SEED、既定 0)。元のコードは種を指定していない。
++torch.manual_seed(int(os.environ.get('SEED', '0')))
+ model = GPT(GPTConfig(vocab_size=num_vocab, n_layer=12, n_head=6, n_embd=768))
++print0(f'params: {sum(p.numel() for p in model.parameters())}')  # [patch 2026-11-17] 11) パラメータ数を記録(約 1.62 億。入力と出力の重みが別)
+ model = model.cuda().bfloat16()
+ for m in model.modules():
+     if isinstance(m, CastedLinear):
+         m.float()
+-if hasattr(config, "coordinate_descent_tuning"):
++# [patch 2026-11-17] 5) 予算のため、コンパイル時の追加の自動調整を既定で切る(CDT=1 で元どおり有効)。
++#    計算の中身は同じで、速さだけが変わりうる。監査 v1 の指摘 2(上流の README も後年この種の設定を禁止)。
++if hasattr(config, "coordinate_descent_tuning") and os.environ.get('CDT') == '1':
+     config.coordinate_descent_tuning = True # suggested by @Chillee
+ model = torch.compile(model)
+ # here we wrap model into DDP container
+@@ -513,17 +558,21 @@
+         val_loss /= val_steps
+         # log val loss to console and to logfile
+         print0(f'step:{step}/{args.num_iterations} val_loss:{val_loss:.4f} train_time:{training_time_ms:.0f}ms step_avg:{training_time_ms/(timed_steps-1):.2f}ms')
++        print0(f'valraw {step} {val_loss.item():.8f} {val_steps * B * T * ddp_world_size}')  # [patch 2026-11-17] 9) 丸める前の平均損失と採点したトークン数(bits per byte 用)
+         # start the clock again
+         torch.cuda.synchronize()
+         t0 = time.time()
+ 
+-    if master_process and (last_step or (args.save_every > 0 and step % args.save_every == 0)):
++    if master_process and not BENCH_STEPS and (last_step or (args.save_every > 0 and step % args.save_every == 0)):
+         # stop the clock
+         torch.cuda.synchronize()
+         training_time_ms += 1000 * (time.time() - t0)
+         # save the state of the training process
+-        log = dict(step=step, code=code, model=raw_model.state_dict(), optimizers=[opt.state_dict() for opt in optimizers])
+-        torch.save(log, 'logs/%s/state_step%06d.pt' % (run_id, step))
++        log = dict(step=step, code=code, model=raw_model.state_dict(), optimizers=[opt.state_dict() for opt in optimizers],
++                   run=os.environ.get('RUN_NAME'), tokenizer=os.environ.get('TOKENIZER_ID'), data_train=args.input_bin, data_val=args.input_val_bin)  # [patch 2026-11-17] 12) 重みに run・トークナイザー・データの識別を入れる
++        _ck = 'logs/%s/state_step%06d.pt' % (run_id, step)
++        torch.save(log, _ck + '.tmp'); os.replace(_ck + '.tmp', _ck)  # [patch 2026-11-17] 10) 一時名で書いてから改名(途中で止まっても壊れた重みを残さない)
++        print0(f'saved {_ck}')
+         # start the clock again
+         torch.cuda.synchronize()
+         t0 = time.time()
+@@ -534,6 +583,8 @@
+     # the validation/sampling one last time, and then we break right here as we're done.
+     if last_step:
+         break
++    if BENCH_STEPS and step == BENCH_STEPS:  # [patch 2026-11-17] 8) の打ち切り
++        break
+ 
+     # --------------- TRAINING SECTION BEGIN -----------------
+     model.train()
+@@ -572,4 +623,6 @@
+ 
+ # -------------------------------------------------------------------------
+ # clean up nice
++if _wb is not None:
++    _tracker.finish()
+ dist.destroy_process_group()

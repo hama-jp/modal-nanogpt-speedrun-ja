@@ -1,0 +1,606 @@
+{
+ "data_id": "fw2jpn-v1",
+ "repo": "HuggingFaceFW/fineweb-2",
+ "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9",
+ "eos": 50256,
+ "tokenizer_sha256": "29e2dd148c2369a897604b37017e933b64b69dbd86eaebeafe6b577dd67c1e4f",
+ "tokenizer_groups": [
+  0,
+  120
+ ],
+ "wall_sec": 440.5,
+ "max_containers": 4,
+ "containers_seen": [
+  "ta-01M7MYTZVW6PJ8A6VVC18R17GR",
+  "ta-01M7MYV0GKMK8CAEEJTJQH8JDR",
+  "ta-01M7MYVY87V32313QGCPVXRYWR",
+  "ta-01M7MYVYSG6YAQVY805AWB0MZR"
+ ],
+ "val": {
+  "path": "/vol/ja/fw2jpn-v1/val/ja_val_000000.bin",
+  "groups": [
+   0,
+   26
+  ],
+  "tokens": 18210634,
+  "chars": 39465179,
+  "bytes": 109203833,
+  "docs": 25889,
+  "sec": 21.0,
+  "max_rss_mb": 421,
+  "container": "ta-01M7MYTZVW6PJ8A6VVC18R17GR"
+ },
+ "train": [
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000001.bin",
+   "groups": [
+    120,
+    160
+   ],
+   "tokens": 25959792,
+   "chars": 55262457,
+   "bytes": 153687320,
+   "docs": 40000,
+   "sec": 25.7,
+   "max_rss_mb": 464,
+   "container": "ta-01M7MYV0GKMK8CAEEJTJQH8JDR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000002.bin",
+   "groups": [
+    160,
+    200
+   ],
+   "tokens": 24710938,
+   "chars": 53124813,
+   "bytes": 148693271,
+   "docs": 40000,
+   "sec": 26.9,
+   "max_rss_mb": 536,
+   "container": "ta-01M7MYTZVW6PJ8A6VVC18R17GR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000003.bin",
+   "groups": [
+    200,
+    240
+   ],
+   "tokens": 24469264,
+   "chars": 52928850,
+   "bytes": 147942912,
+   "docs": 40000,
+   "sec": 23.3,
+   "max_rss_mb": 521,
+   "container": "ta-01M7MYV0GKMK8CAEEJTJQH8JDR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000004.bin",
+   "groups": [
+    240,
+    280
+   ],
+   "tokens": 25336182,
+   "chars": 54873392,
+   "bytes": 153937303,
+   "docs": 40000,
+   "sec": 34.8,
+   "max_rss_mb": 453,
+   "container": "ta-01M7MYVY87V32313QGCPVXRYWR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000005.bin",
+   "groups": [
+    280,
+    320
+   ],
+   "tokens": 25225509,
+   "chars": 55033996,
+   "bytes": 154778433,
+   "docs": 40000,
+   "sec": 36.3,
+   "max_rss_mb": 463,
+   "container": "ta-01M7MYVYSG6YAQVY805AWB0MZR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000006.bin",
+   "groups": [
+    320,
+    360
+   ],
+   "tokens": 24620288,
+   "chars": 53687409,
+   "bytes": 151262742,
+   "docs": 40000,
+   "sec": 23.9,
+   "max_rss_mb": 558,
+   "container": "ta-01M7MYV0GKMK8CAEEJTJQH8JDR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000007.bin",
+   "groups": [
+    360,
+    400
+   ],
+   "tokens": 25857749,
+   "chars": 56044515,
+   "bytes": 157477103,
+   "docs": 40000,
+   "sec": 34.9,
+   "max_rss_mb": 510,
+   "container": "ta-01M7MYVY87V32313QGCPVXRYWR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000008.bin",
+   "groups": [
+    400,
+    440
+   ],
+   "tokens": 27198645,
+   "chars": 59330441,
+   "bytes": 167122388,
+   "docs": 40000,
+   "sec": 30.1,
+   "max_rss_mb": 553,
+   "container": "ta-01M7MYTZVW6PJ8A6VVC18R17GR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000009.bin",
+   "groups": [
+    440,
+    480
+   ],
+   "tokens": 26592176,
+   "chars": 58222882,
+   "bytes": 163598327,
+   "docs": 40000,
+   "sec": 38.7,
+   "max_rss_mb": 520,
+   "container": "ta-01M7MYVYSG6YAQVY805AWB0MZR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000010.bin",
+   "groups": [
+    480,
+    520
+   ],
+   "tokens": 27017788,
+   "chars": 58838288,
+   "bytes": 164603564,
+   "docs": 40000,
+   "sec": 29.3,
+   "max_rss_mb": 604,
+   "container": "ta-01M7MYTZVW6PJ8A6VVC18R17GR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000011.bin",
+   "groups": [
+    520,
+    560
+   ],
+   "tokens": 26893337,
+   "chars": 58794256,
+   "bytes": 164128989,
+   "docs": 40000,
+   "sec": 35.5,
+   "max_rss_mb": 560,
+   "container": "ta-01M7MYVY87V32313QGCPVXRYWR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000012.bin",
+   "groups": [
+    560,
+    600
+   ],
+   "tokens": 27052602,
+   "chars": 59126867,
+   "bytes": 164790121,
+   "docs": 40000,
+   "sec": 26.7,
+   "max_rss_mb": 650,
+   "container": "ta-01M7MYV0GKMK8CAEEJTJQH8JDR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000013.bin",
+   "groups": [
+    600,
+    640
+   ],
+   "tokens": 26566228,
+   "chars": 58082633,
+   "bytes": 161646420,
+   "docs": 40000,
+   "sec": 37.2,
+   "max_rss_mb": 562,
+   "container": "ta-01M7MYVYSG6YAQVY805AWB0MZR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000014.bin",
+   "groups": [
+    640,
+    680
+   ],
+   "tokens": 27424215,
+   "chars": 59819278,
+   "bytes": 165916983,
+   "docs": 40000,
+   "sec": 26.6,
+   "max_rss_mb": 675,
+   "container": "ta-01M7MYV0GKMK8CAEEJTJQH8JDR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000015.bin",
+   "groups": [
+    680,
+    720
+   ],
+   "tokens": 27880089,
+   "chars": 60900813,
+   "bytes": 168926038,
+   "docs": 40000,
+   "sec": 31.2,
+   "max_rss_mb": 628,
+   "container": "ta-01M7MYTZVW6PJ8A6VVC18R17GR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000016.bin",
+   "groups": [
+    720,
+    760
+   ],
+   "tokens": 28278501,
+   "chars": 61912059,
+   "bytes": 170577558,
+   "docs": 40000,
+   "sec": 35.7,
+   "max_rss_mb": 627,
+   "container": "ta-01M7MYVY87V32313QGCPVXRYWR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000017.bin",
+   "groups": [
+    760,
+    800
+   ],
+   "tokens": 30808704,
+   "chars": 66934738,
+   "bytes": 181577338,
+   "docs": 40000,
+   "sec": 42.3,
+   "max_rss_mb": 596,
+   "container": "ta-01M7MYVYSG6YAQVY805AWB0MZR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000018.bin",
+   "groups": [
+    800,
+    840
+   ],
+   "tokens": 27984954,
+   "chars": 60988093,
+   "bytes": 168576622,
+   "docs": 40000,
+   "sec": 31.1,
+   "max_rss_mb": 680,
+   "container": "ta-01M7MYTZVW6PJ8A6VVC18R17GR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000019.bin",
+   "groups": [
+    840,
+    880
+   ],
+   "tokens": 29661040,
+   "chars": 64520404,
+   "bytes": 178414389,
+   "docs": 40000,
+   "sec": 38.0,
+   "max_rss_mb": 653,
+   "container": "ta-01M7MYVY87V32313QGCPVXRYWR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000020.bin",
+   "groups": [
+    880,
+    920
+   ],
+   "tokens": 26779884,
+   "chars": 58722369,
+   "bytes": 161649180,
+   "docs": 40000,
+   "sec": 26.2,
+   "max_rss_mb": 692,
+   "container": "ta-01M7MYV0GKMK8CAEEJTJQH8JDR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000021.bin",
+   "groups": [
+    920,
+    960
+   ],
+   "tokens": 25295439,
+   "chars": 57990391,
+   "bytes": 156738929,
+   "docs": 40000,
+   "sec": 36.3,
+   "max_rss_mb": 694,
+   "container": "ta-01M7MYVYSG6YAQVY805AWB0MZR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000022.bin",
+   "groups": [
+    960,
+    1000
+   ],
+   "tokens": 27521655,
+   "chars": 58610776,
+   "bytes": 163086848,
+   "docs": 40000,
+   "sec": 30.0,
+   "max_rss_mb": 734,
+   "container": "ta-01M7MYTZVW6PJ8A6VVC18R17GR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000023.bin",
+   "groups": [
+    1000,
+    1040
+   ],
+   "tokens": 26941527,
+   "chars": 57138932,
+   "bytes": 159249013,
+   "docs": 40000,
+   "sec": 37.1,
+   "max_rss_mb": 694,
+   "container": "ta-01M7MYVYSG6YAQVY805AWB0MZR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000024.bin",
+   "groups": [
+    1040,
+    1080
+   ],
+   "tokens": 24907226,
+   "chars": 53547438,
+   "bytes": 150254690,
+   "docs": 40000,
+   "sec": 24.3,
+   "max_rss_mb": 745,
+   "container": "ta-01M7MYV0GKMK8CAEEJTJQH8JDR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000025.bin",
+   "groups": [
+    1080,
+    1120
+   ],
+   "tokens": 24541407,
+   "chars": 52915373,
+   "bytes": 148051730,
+   "docs": 40000,
+   "sec": 32.7,
+   "max_rss_mb": 686,
+   "container": "ta-01M7MYVY87V32313QGCPVXRYWR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000026.bin",
+   "groups": [
+    1120,
+    1160
+   ],
+   "tokens": 25642076,
+   "chars": 55570493,
+   "bytes": 156079708,
+   "docs": 40000,
+   "sec": 27.9,
+   "max_rss_mb": 795,
+   "container": "ta-01M7MYTZVW6PJ8A6VVC18R17GR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000027.bin",
+   "groups": [
+    1160,
+    1200
+   ],
+   "tokens": 25273637,
+   "chars": 55182970,
+   "bytes": 155380702,
+   "docs": 40000,
+   "sec": 34.2,
+   "max_rss_mb": 723,
+   "container": "ta-01M7MYVY87V32313QGCPVXRYWR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000028.bin",
+   "groups": [
+    1200,
+    1240
+   ],
+   "tokens": 26116066,
+   "chars": 56660984,
+   "bytes": 159145309,
+   "docs": 40000,
+   "sec": 25.1,
+   "max_rss_mb": 800,
+   "container": "ta-01M7MYV0GKMK8CAEEJTJQH8JDR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000029.bin",
+   "groups": [
+    1240,
+    1280
+   ],
+   "tokens": 26883459,
+   "chars": 58674218,
+   "bytes": 165064980,
+   "docs": 40000,
+   "sec": 43.4,
+   "max_rss_mb": 717,
+   "container": "ta-01M7MYVYSG6YAQVY805AWB0MZR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000030.bin",
+   "groups": [
+    1280,
+    1320
+   ],
+   "tokens": 26771075,
+   "chars": 58463000,
+   "bytes": 164339931,
+   "docs": 40000,
+   "sec": 37.2,
+   "max_rss_mb": 802,
+   "container": "ta-01M7MYVY87V32313QGCPVXRYWR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000031.bin",
+   "groups": [
+    1320,
+    1360
+   ],
+   "tokens": 27248799,
+   "chars": 59426488,
+   "bytes": 166174466,
+   "docs": 40000,
+   "sec": 26.8,
+   "max_rss_mb": 834,
+   "container": "ta-01M7MYV0GKMK8CAEEJTJQH8JDR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000032.bin",
+   "groups": [
+    1360,
+    1400
+   ],
+   "tokens": 27124071,
+   "chars": 59193178,
+   "bytes": 165084681,
+   "docs": 40000,
+   "sec": 29.6,
+   "max_rss_mb": 830,
+   "container": "ta-01M7MYTZVW6PJ8A6VVC18R17GR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000033.bin",
+   "groups": [
+    1400,
+    1440
+   ],
+   "tokens": 26879833,
+   "chars": 58818561,
+   "bytes": 163946787,
+   "docs": 40000,
+   "sec": 37.9,
+   "max_rss_mb": 779,
+   "container": "ta-01M7MYVYSG6YAQVY805AWB0MZR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000034.bin",
+   "groups": [
+    1440,
+    1480
+   ],
+   "tokens": 27169370,
+   "chars": 59246758,
+   "bytes": 164129843,
+   "docs": 40000,
+   "sec": 26.3,
+   "max_rss_mb": 914,
+   "container": "ta-01M7MYV0GKMK8CAEEJTJQH8JDR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000035.bin",
+   "groups": [
+    1480,
+    1520
+   ],
+   "tokens": 28162828,
+   "chars": 61537580,
+   "bytes": 170704790,
+   "docs": 40000,
+   "sec": 29.4,
+   "max_rss_mb": 854,
+   "container": "ta-01M7MYTZVW6PJ8A6VVC18R17GR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000036.bin",
+   "groups": [
+    1520,
+    1560
+   ],
+   "tokens": 28512987,
+   "chars": 62319785,
+   "bytes": 172292030,
+   "docs": 40000,
+   "sec": 37.7,
+   "max_rss_mb": 816,
+   "container": "ta-01M7MYVY87V32313QGCPVXRYWR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000037.bin",
+   "groups": [
+    1560,
+    1600
+   ],
+   "tokens": 30456059,
+   "chars": 66179284,
+   "bytes": 179632800,
+   "docs": 40000,
+   "sec": 41.5,
+   "max_rss_mb": 819,
+   "container": "ta-01M7MYVYSG6YAQVY805AWB0MZR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000038.bin",
+   "groups": [
+    1600,
+    1640
+   ],
+   "tokens": 28243977,
+   "chars": 61435100,
+   "bytes": 169709886,
+   "docs": 40000,
+   "sec": 30.7,
+   "max_rss_mb": 941,
+   "container": "ta-01M7MYTZVW6PJ8A6VVC18R17GR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000039.bin",
+   "groups": [
+    1640,
+    1680
+   ],
+   "tokens": 29282898,
+   "chars": 63761013,
+   "bytes": 176245411,
+   "docs": 40000,
+   "sec": 38.8,
+   "max_rss_mb": 881,
+   "container": "ta-01M7MYVY87V32313QGCPVXRYWR"
+  },
+  {
+   "path": "/vol/ja/fw2jpn-v1/train/ja_train_000040.bin",
+   "groups": [
+    1680,
+    1720
+   ],
+   "tokens": 26029628,
+   "chars": 58884965,
+   "bytes": 160023376,
+   "docs": 40000,
+   "sec": 26.0,
+   "max_rss_mb": 958,
+   "container": "ta-01M7MYV0GKMK8CAEEJTJQH8JDR"
+  }
+ ],
+ "surplus": [],
+ "train_tokens": 1075321902,
+ "train_chars_per_token": 2.1786,
+ "child_wall_sec_total": 1308.3,
+ "child_jobs": 41,
+ "validated": {
+  "val_tokens": 18210634,
+  "train_files": 40,
+  "train_tokens": 1075321902,
+  "loader_batches_no_wrap": 1995
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "375": {
+  "grammar": 0.67,
+  "coherence": 0.33,
+  "repetition": 0.17,
+  "total_of_6": 1.17
+ },
+ "750": {
+  "grammar": 0.83,
+  "coherence": 0.67,
+  "repetition": 0.5,
+  "total_of_6": 2.0
+ },
+ "1125": {
+  "grammar": 0.67,
+  "coherence": 0.33,
+  "repetition": 0.5,
+  "total_of_6": 1.5
+ },
+ "1500": {
+  "grammar": 1.33,
+  "coherence": 0.83,
+  "repetition": 1,
+  "total_of_6": 3.16
+ },
+ "1875": {
+  "grammar": 0.67,
+  "coherence": 0.5,
+  "repetition": 0.5,
+  "total_of_6": 1.67
+ }
+}
